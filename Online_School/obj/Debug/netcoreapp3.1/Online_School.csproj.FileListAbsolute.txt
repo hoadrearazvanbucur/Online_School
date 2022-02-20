@@ -1,0 +1,17 @@
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Online_School.exe
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\obj\Debug\netcoreapp3.1\Online_School.csprojAssemblyReference.cache
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\obj\Debug\netcoreapp3.1\Online_School.AssemblyInfoInputs.cache
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\obj\Debug\netcoreapp3.1\Online_School.AssemblyInfo.cs
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Dapper.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\obj\Debug\netcoreapp3.1\Online_School.csproj.CopyComplete
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\Online_School\bin\Debug\netcoreapp3.1\System.Text.Json.dll

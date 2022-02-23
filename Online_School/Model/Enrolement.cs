@@ -7,9 +7,8 @@ namespace Online_School.Model
     public class Enrolement: IComparable
     {
         private int student_id, course_id;
-        private string create_at;
-
-        public Enrolement(int student_id,int course_id,string create_at)
+        private DateTime create_at;
+        public Enrolement(int student_id,int course_id, DateTime create_at)
         {
             this.student_id = student_id;
             this.course_id = course_id;
@@ -33,7 +32,7 @@ namespace Online_School.Model
             get => this.course_id;
             set => this.course_id = value;
         }
-        public string Create_at
+        public DateTime Create_at
         {
             get => this.create_at;
             set => this.create_at = value;

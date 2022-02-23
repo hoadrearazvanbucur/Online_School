@@ -19,11 +19,11 @@ namespace Tests
         public IntegrationTests(ITestOutputHelper output)
         {
             this.outputHelper = output;
-            this.book= new BookServices();
-            this.course =new CourseServices();
-            this.enrolement =new EnrolementServices();
-            this.student_id_card =new Student_id_cardServices();
-            this.student =new StudentServices();
+            //this.book= new BookServices("Test");
+            //this.course =new CourseServices();
+            //this.enrolement =new EnrolementServices();
+            //this.student_id_card =new Student_id_cardServices();
+            //this.student =new StudentServices();
         }
 
         [Fact]

@@ -7,16 +7,17 @@ namespace Online_School.Model
     public class Book : IComparable
     {
         int id, student_id;
-        string book_name, create_at;
+        string book_name;
+        DateTime create_at;
 
-        public Book(int id,int student_id,string book_name,string create_at)
+        public Book(int id,int student_id,string book_name,DateTime create_at)
         {
             this.id = id;
             this.student_id = student_id;
             this.book_name = book_name;
             this.create_at = create_at;
         }
-        public Book(int student_id, string book_name, string create_at)
+        public Book(int student_id, string book_name, DateTime create_at)
         {
             this.student_id = student_id;
             this.book_name = book_name;
@@ -45,7 +46,7 @@ namespace Online_School.Model
             get => this.book_name;
             set => this.book_name = value;
         }
-        public string Create_at
+        public DateTime Create_at
         {
             get => this.create_at;
             set => this.create_at = value;

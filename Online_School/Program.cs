@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Online_School.Repository;
+using Online_School.Services;
+using System;
 
 namespace Online_School
 {
@@ -6,7 +8,6 @@ namespace Online_School
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }

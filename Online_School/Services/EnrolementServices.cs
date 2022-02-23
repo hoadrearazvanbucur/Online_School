@@ -1,4 +1,5 @@
-﻿using Online_School.Model;
+﻿using Online_School.Exceptions;
+using Online_School.Model;
 using Online_School.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,38 +11,59 @@ namespace Online_School.Services
     {
         public EnrolementRepository control;
 
-        public EnrolementServices()
+        public EnrolementServices(string dataBase)
         {
-            this.control = new EnrolementRepository();
+            this.control = new EnrolementRepository(dataBase);
         }
 
         public List<Enrolement> lista()
         {
             return control.getAll();
         }
-
         public void create(Enrolement enrolement)
         {
-            if (!this.lista().Contains(enrolement))
+            if(!this.exist(enrolement.Student_id,enrolement.Course_id))
             {
                 control.add(enrolement);
             }
             else
             {
-                throw new Exception("");
+                throw new EnrolementException("Aceasta inscriere exista");
             }
         }
-
-        public void deleteById(int id)
+        public void deleteByStudent_idANDCourse_id(int student_id,int course_id)
         {
-            if (this.lista().Contains(this.control.getEnrolementById(id)))
+            if(this.exist(student_id,course_id))
             {
-                control.deleteById(id);
+                control.deleteByStudent_idANDCourse_id(student_id, course_id);
             }
             else
             {
-                throw new Exception("");
+                throw new EnrolementException("Aceasta inscriere nu exista");
             }
         }
+
+        public bool exist(int student_id, int course_id)
+        {
+            foreach (Enrolement enrolement in this.lista())
+                if (enrolement.Student_id == student_id && enrolement.Course_id == course_id)
+                    return true;
+            return false;
+        }
+        public bool existCourse_id(int course_id)
+        {
+            foreach (Enrolement enrolement in this.lista())
+                if (enrolement.Course_id == course_id)
+                    return true;
+            return false;
+        }
+        public bool existStudent_id(int student_id)
+        {
+            foreach (Enrolement enrolement in this.lista())
+                if (enrolement.Student_id == student_id)
+                    return true;
+            return false;
+        }
+
     }
 }

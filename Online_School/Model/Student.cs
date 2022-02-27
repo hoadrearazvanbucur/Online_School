@@ -8,7 +8,7 @@ namespace Online_School.Model
     {
         private int id, age;
         private string first_name, last_name, email;
-
+        
         public Student(int id,int age,string first_name,string last_name,string email)
         {
             this.id = id;

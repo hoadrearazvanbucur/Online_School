@@ -9,103 +9,69 @@ namespace Online_School.Services
 {
     public class Student_id_cardServices
     {
-        public BookRepository control;
+        public Student_id_cardRepository control;
 
         public Student_id_cardServices(string dataBase)
         {
-            this.control = new BookRepository(dataBase);
+            this.control = new Student_id_cardRepository(dataBase);
         }
 
-        public List<Book> lista()
+        public List<Student_id_card> lista()
         {
             return control.getAll();
         }
-        public void create(Book book)
+        public void create(Student_id_card student_id_card)
         {
-            if (!this.exist(book.Student_id, book.Book_name, book.Create_at))
+            if (!this.exist(student_id_card.Student_id, student_id_card.Card_number))
             {
-                control.add(book);
+                control.add(student_id_card);
             }
             else
             {
-                throw new BookException("Aceasta carte exista");
+                throw new Student_id_cardException("Acest card exista");
             }
         }
         public void deleteById(int id)
         {
-            if (this.exist(this.control.getBookById(id).Student_id, this.control.getBookById(id).Book_name, this.control.getBookById(id).Create_at))
+            if (this.existId(id))
             {
                 control.deleteById(id);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new Student_id_cardException("Acest card nu exista");
             }
         }
-        public void deleteByName(string name)
+        public void deleteByStudent_id(int student_id)
         {
-            if (this.existName(name))
+            if (this.existStudent_id(student_id))
             {
-                control.deleteByName(name);
+                control.deleteByStudent_id(student_id);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new Student_id_cardException("Acest card nu exista");
             }
-        }
+        }      
 
-        public void updateBook_name(string name, string newname)
+        public bool exist(int student_id, string card_number)
         {
-            if (this.existName(name))
-            {
-                control.updateBook_nameByName(name, newname);
-            }
-            else
-            {
-                throw new BookException("Aceasta carte nu exista");
-            }
-        }
-        public void updateStudent_id(string name, int student_id)
-        {
-            if (this.existName(name))
-            {
-                control.updateStudent_IdByName(name, student_id);
-            }
-            else
-            {
-                throw new BookException("Aceasta carte nu exista");
-            }
-        }
-        public void updateCreate_at(string name, DateTime create_at)
-        {
-            if (this.existName(name))
-            {
-                control.updateCreate_atByName(name, create_at);
-            }
-            else
-            {
-                throw new BookException("Aceasta carte nu exista");
-            }
-        }
-
-        public bool exist(int student_id, string book_name, DateTime create_at)
-        {
-            foreach (Book book in this.lista())
-                if (book.Student_id == student_id && book.Book_name == book_name && book.Create_at == create_at)
+            foreach (Student_id_card student_id_card in this.lista())
+                if (student_id_card.Student_id==student_id && student_id_card.Card_number==card_number)
                     return true;
             return false;
         }
-        public bool existName(string name)
+        public bool existStudent_id(int student_id)
         {
-            foreach (Book book in this.lista())
-                if (book.Book_name == name)
+            foreach (Student_id_card student_id_card in this.lista())
+                if (student_id_card.Student_id==student_id)
                     return true;
             return false;
         }
         public bool existId(int id)
         {
-            foreach (Book book in this.lista())
-                if (book.Id == id)
+            foreach (Student_id_card student_id_card in this.lista())
+                if (student_id_card.Id == id)
                     return true;
             return false;
         }

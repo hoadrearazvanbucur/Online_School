@@ -6,15 +6,15 @@ namespace Online_School.Model
 {
     public class Student_id_card : IComparable
     {
-        private int id, student_id, card_number;
-        
-        public Student_id_card(int id,int student_id,int card_number)
+        private int id, student_id;
+        private string card_number;
+        public Student_id_card(int id,int student_id,string card_number)
         {
             this.id = id;
             this.student_id = student_id;
             this.card_number = card_number;
         }
-        public Student_id_card(int student_id, int card_number)
+        public Student_id_card(int student_id, string card_number)
         {
             this.student_id = student_id;
             this.card_number = card_number;
@@ -37,7 +37,7 @@ namespace Online_School.Model
             get => this.student_id;
             set => this.student_id = value;
         }
-        public int Card_number
+        public string Card_number
         {
             get => this.card_number;
             set => this.card_number = value;

@@ -24,13 +24,13 @@ namespace Online_School.Repository
 
         public List<Student> getAll()
         {
-            string sql = "select * from student";
+            string sql = "select id,age,first_name,last_name,email from student";
             return db.LoadData<Student, dynamic>(sql, new { }, connectionString);
         }
         public void add(Student student)
         {
-            string sql = "insert into student(id, first_name, last_name, email, age) values (@id, @first_name, @last_name, @email, @age)";
-            db.SaveData(sql, new { student.Id, student.First_name, student.Last_name, student.Email, student.Age}, connectionString);
+            string sql = "insert into student(first_name, last_name, email, age) values (@first_name, @last_name, @email, @age)";
+            db.SaveData(sql, new {student.First_name, student.Last_name, student.Email, student.Age}, connectionString);
         }
         public void deleteById(int id)
         {

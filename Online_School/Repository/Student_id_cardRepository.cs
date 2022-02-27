@@ -22,52 +22,36 @@ namespace Online_School.Repository
             this.connectionString = config.GetConnectionString(dataBase);
         }
 
-        public List<Book> getAll()
+        public List<Student_id_card> getAll()
         {
-            string sql = "select * from book";
-            return db.LoadData<Book, dynamic>(sql, new { }, connectionString);
+            string sql = "select id,student_id,card_number from student_id_card";
+            return db.LoadData<Student_id_card, dynamic>(sql, new { }, connectionString);
         }
-        public void add(Book book)
+        public void add(Student_id_card Student_id_card)
         {
-            string sql = "insert into book(student_id,book_name,create_at) values(@student_id,@book_name,@create_at)";
-            db.SaveData(sql, new { book.Student_id, book.Book_name, book.Create_at }, connectionString);
+            string sql = "insert into student_id_card(student_id, card_number) values (@student_id, @card_number) ";
+            db.SaveData(sql, new { Student_id_card.Student_id, Student_id_card.Card_number }, connectionString);
         }
         public void deleteById(int id)
         {
-            string sql = "delete from book where id=@id";
+            string sql = "delete from student_id_card where id=@id";
             db.SaveData(sql, new { id }, connectionString);
         }
-        public void deleteByName(string book_name)
+        public void deleteByStudent_id(int student_id)
         {
-            string sql = "delete from book where book_name=@book_name";
-            db.SaveData(sql, new { book_name }, connectionString);
+            string sql = "delete from student_id_card where student_id=@student_id";
+            db.SaveData(sql, new { student_id }, connectionString);
         }
 
-        public void updateBook_nameByName(string name, string newname)
+        public Student_id_card getStudent_id_cardById(int id)
         {
-            string sql = "update book set book_name=@newname where book_name=@name";
-            db.SaveData(sql, new { newname, name }, connectionString);
+            string sql = "select * from student_id_card where id=@id";
+            return db.LoadData<Student_id_card, dynamic>(sql, new { id }, connectionString)[0];
         }
-        public void updateStudent_IdByName(string name, int newstudent_id)
+        public Student_id_card getStudent_id_cardByStudent_id(int student_id)
         {
-            string sql = "update book set student_id=@newstudent_id where book_name=@name";
-            db.SaveData(sql, new { newstudent_id, name }, connectionString);
-        }
-        public void updateCreate_atByName(string name, DateTime create_at)
-        {
-            string sql = "update book set create_at=@create_at where book_name=@name";
-            db.SaveData(sql, new { create_at, name }, connectionString);
-        }
-
-        public Book getBookById(int id)
-        {
-            string sql = "select * from book where id=@id";
-            return db.LoadData<Book, dynamic>(sql, new { id }, connectionString)[0];
-        }
-        public Book getBookByName(string book_name)
-        {
-            string sql = "select * from book where book_name=@book_name";
-            return db.LoadData<Book, dynamic>(sql, new { book_name }, connectionString)[0];
+            string sql = "select * from student_id_card where student_id=@student_id";
+            return db.LoadData<Student_id_card, dynamic>(sql, new { student_id }, connectionString)[0];
         }
     }
 }

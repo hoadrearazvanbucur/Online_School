@@ -20,92 +20,104 @@ namespace Online_School.Services
         {
             return control.getAll();
         }
-        public void create(Book book)
+        public void create(Student student)
         {
-            if (!this.exist(book.Student_id, book.Book_name, book.Create_at))
+            if (!this.exist(student.First_name, student.Last_name, student.Email, student.Age))
             {
-                control.add(book);
+                control.add(student);
             }
             else
             {
-                throw new BookException("Aceasta carte exista");
+                throw new StudentException("Acest student exista");
             }
         }
         public void deleteById(int id)
         {
-            if (this.exist(this.control.getBookById(id).Student_id, this.control.getBookById(id).Book_name, this.control.getBookById(id).Create_at))
+            if (this.existId(id))
             {
                 control.deleteById(id);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new StudentException("Acest student nu exista");
             }
         }
-        public void deleteByName(string name)
+        public void deleteByFirst_name(string first_name)
         {
-            if (this.existName(name))
+            if (this.existFirst_name(first_name))
             {
-                control.deleteByName(name);
+                control.deleteByName(first_name);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new StudentException("Acest student nu exista");
             }
         }
 
-        public void updateBook_name(string name, string newname)
+        public void updateFirst_name(string first_name, string newFirst_name)
         {
-            if (this.existName(name))
+            if (this.existFirst_name(first_name))
             {
-                control.updateBook_nameByName(name, newname);
+                control.updateFirst_nameByFirst_name(first_name, newFirst_name);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new StudentException("Acest student nu exista");
             }
         }
-        public void updateStudent_id(string name, int student_id)
+        public void updateLast_name(string first_name, string newLast_name)
         {
-            if (this.existName(name))
+            if (this.existFirst_name(first_name))
             {
-                control.updateStudent_IdByName(name, student_id);
+                control.updateLast_nameByFirst_name(first_name, newLast_name);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new StudentException("Acest student nu exista");
             }
         }
-        public void updateCreate_at(string name, DateTime create_at)
+        public void updateEmail(string first_name, string newEmail)
         {
-            if (this.existName(name))
+            if (this.existFirst_name(first_name))
             {
-                control.updateCreate_atByName(name, create_at);
+                control.updateEmailByFirst_name(first_name, newEmail);
             }
             else
             {
-                throw new BookException("Aceasta carte nu exista");
+                throw new StudentException("Acest student nu exista");
+            }
+        }
+        public void updateAge(string first_name, int age)
+        {
+            if (this.existFirst_name(first_name))
+            {
+                control.updateAgeByFirst_name(first_name, age);
+            }
+            else
+            {
+                throw new StudentException("Acest student nu exista");
             }
         }
 
-        public bool exist(int student_id, string book_name, DateTime create_at)
+
+        public bool exist(string first_name, string last_name, string email, int age)
         {
-            foreach (Book book in this.lista())
-                if (book.Student_id == student_id && book.Book_name == book_name && book.Create_at == create_at)
+            foreach (Student student in this.lista())
+                if (student.First_name == first_name && student.Last_name == last_name && student.Email == email && student.Age == age)
                     return true;
             return false;
         }
-        public bool existName(string name)
+        public bool existFirst_name(string first_name)
         {
-            foreach (Book book in this.lista())
-                if (book.Book_name == name)
+            foreach (Student student in this.lista())
+                if (student.First_name == first_name)
                     return true;
             return false;
         }
         public bool existId(int id)
         {
-            foreach (Book book in this.lista())
-                if (book.Id == id)
+            foreach (Student student in this.lista())
+                if (student.Id == id)
                     return true;
             return false;
         }

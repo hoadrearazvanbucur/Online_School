@@ -31,9 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,7 +74,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(32, 385);
+            this.panel4.Location = new System.Drawing.Point(48, 376);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(814, 527);
             this.panel4.TabIndex = 4;
@@ -80,12 +82,26 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Location = new System.Drawing.Point(555, 179);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(196, 100);
+            this.panel5.Size = new System.Drawing.Size(196, 155);
             this.panel5.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label10.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.Green;
+            this.label10.Location = new System.Drawing.Point(-1, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(196, 46);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "*     Afisare";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
@@ -97,7 +113,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(196, 46);
             this.label11.TabIndex = 1;
-            this.label11.Text = "-      Parasire";
+            this.label11.Text = "-      Dezabonare";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -116,12 +132,26 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(243, 179);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(196, 100);
+            this.panel3.Size = new System.Drawing.Size(196, 154);
             this.panel3.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.Green;
+            this.label9.Location = new System.Drawing.Point(-1, 108);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(196, 46);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "*     Afisare";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
@@ -283,5 +313,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

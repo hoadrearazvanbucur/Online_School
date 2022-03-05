@@ -19,7 +19,7 @@ namespace View
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TranslateTimer());
+            Application.Run(new Home_View());
         }
     }
 }

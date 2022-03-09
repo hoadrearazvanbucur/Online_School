@@ -10,5 +10,11 @@
     <Compile Update="View\Home_View.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\LogareInregistrare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="View\MainCurs.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

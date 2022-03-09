@@ -11,13 +11,25 @@ namespace View.View
     public class Home_View : Form
     {
         private Panel home;
+        private EnrolementServices enrolementServices;
         private CourseServices courseServices;
+        private BookServices bookServices;
+        private StudentServices studentServices;
+        private Student_id_cardServices student_id_cardServices;
+        private Student student;
+
 
         public Home_View()
         {
+            this.courseServices = new CourseServices("Default");
+            this.enrolementServices = new EnrolementServices("Default");
+            this.bookServices = new BookServices("Default");
+            this.studentServices = new StudentServices("Default");
+            this.student_id_cardServices = new Student_id_cardServices("Default");
+            this.student = null;
+
             layoutForm();
             layouts();
-            this.courseServices = new CourseServices("Default");
         }
 
         public void layoutForm()
@@ -29,7 +41,6 @@ namespace View.View
             this.Top = Screen.PrimaryScreen.Bounds.Height / 2 - 375;
             this.FormBorderStyle = FormBorderStyle.None;
         }
-
         public void layouts()
         {
             this.home = new Panel();
@@ -80,7 +91,6 @@ namespace View.View
             layoutMain(main);
             this.home.Controls.Add(main);
         }
-
         public void layoutMain(Panel main)
         {
             main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -296,6 +306,7 @@ namespace View.View
             Panel cartiP= null;
             Panel cursP= null;
             Panel home = null;
+            Panel main = null;
             foreach(Control control in this.Controls)
                 if (control.Name == "home")
                     home = control as Panel;
@@ -311,6 +322,8 @@ namespace View.View
                     cartiP = control as Panel;
                 if (control.Name == "cursP")
                     cursP = control as Panel;
+                if (control.Name == "main")
+                    main = control as Panel;
             }
 
             acasaL.BackColor = Color.PaleGreen;
@@ -414,7 +427,7 @@ namespace View.View
             inregistrare.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             inregistrare.ForeColor = System.Drawing.Color.Green;
             inregistrare.Location = new System.Drawing.Point(592, 10);
-            inregistrare.Name = "label6";
+            inregistrare.Name = "inregistrare";
             inregistrare.Size = new System.Drawing.Size(142, 26);
             inregistrare.TabIndex = 1;
             inregistrare.Text = "Inregistrare";
@@ -428,7 +441,7 @@ namespace View.View
             logare.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             logare.ForeColor = System.Drawing.Color.Green;
             logare.Location = new System.Drawing.Point(740, 10);
-            logare.Name = "label5";
+            logare.Name = "logare";
             logare.Size = new System.Drawing.Size(97, 26);
             logare.TabIndex = 1;
             logare.Text = "Logare";
@@ -453,11 +466,75 @@ namespace View.View
         }
         public void inregistrare_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Inregistrare");
+            Panel main = null;
+            Panel home = null;
+            Panel curs = null;
+            Panel carti = null;
+            Label logare = null;
+            foreach (Control control in this.Controls)
+                if (control.Name == "home")
+                    home = control as Panel;
+            foreach (Control control in home.Controls)
+                if (control.Name == "main")
+                    main = control as Panel;
+                else
+                    if (control.Name == "cursP")
+                    curs = control as Panel;
+                else
+                    if (control.Name == "cartiP")
+                    carti = control as Panel;
+                else
+                    if (control.Name == "logare")
+                    logare = control as Label;
+
+            main.Controls.Clear();
+            curs.Visible = false;
+            carti.Visible = false;
+
+            if ((sender as Label).Text == "Inregistrare")
+            {
+                LogareInregistrare p = new LogareInregistrare(2, this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices);
+                main.Controls.Add(p);
+                this.student = p.Student;
+            }
         }
         public void logare_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Logare");
+            Panel main = null;
+            Panel home = null;
+            Panel curs = null;
+            Panel carti = null;
+            Label inregistrareL = null;
+            foreach (Control control in this.Controls)
+                if (control.Name == "home")
+                    home = control as Panel;
+            foreach (Control control in home.Controls)
+                if (control.Name == "main")
+                    main = control as Panel;
+                else
+                    if (control.Name == "cursP")
+                    curs = control as Panel;
+                else
+                    if (control.Name == "cartiP")
+                    carti = control as Panel;
+                else
+                    if (control.Name == "inregistrare")
+                    inregistrareL = control as Label;
+                        
+            main.Controls.Clear();
+            curs.Visible = false;
+            carti.Visible = false;
+            if ((sender as Label).Text == "Logare")
+            {
+                LogareInregistrare p = new LogareInregistrare(1,this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices);
+                main.Controls.Add(p);
+                this.student = p.Student;
+            }
+            else
+            {
+                inregistrareL.Text = "Inregistrare";
+                (sender as Label).Text = "Logare";
+            }
         }
         public void adaugare_Click(object sender, EventArgs e)
         {
@@ -469,26 +546,35 @@ namespace View.View
         }
         public void inscriere_Click(object sender, EventArgs e)
         {
-            this.courseServices.create(new Course("TEST", "TEST"));
-            MessageBox.Show("Adaugat cu succes!");
+            Panel main = null;
+            Panel home = null;
+            Panel curs = null;
+            foreach (Control control in this.Controls)
+                if (control.Name == "home")
+                    home = control as Panel;
+            foreach (Control control in home.Controls)
+                if (control.Name == "main")
+                    main = control as Panel;
+                else
+                    if (control.Name == "cursP")
+                    curs = control as Panel;
+            main.Controls.Clear();
+            curs.Visible = false;
+
+            Panel p = new MainCurs(1,this,this.bookServices,this.courseServices,this.enrolementServices,this.studentServices,this.student_id_cardServices);
+            main.Controls.Add(p);
         }
         public void dezabonare_Click(object sender, EventArgs e)
         {
-            this.courseServices.deleteByName("TEST");
-            MessageBox.Show("Sters cu succes!");
+            
         }
-
         public void afisareCurs_Click(object sender, EventArgs e)
         {
-            string text = "";
-            foreach (Course curs in this.courseServices.lista())
-                text += curs.ToString()+"\n";
-            MessageBox.Show(text);
+
         }
         public void afisareCarti_Click(object sender, EventArgs e)
         {
 
         }
-
     }
 }

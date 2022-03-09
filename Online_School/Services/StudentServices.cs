@@ -121,5 +121,19 @@ namespace Online_School.Services
                     return true;
             return false;
         }
+        public bool exist(string first_name, string first_name_age)
+        {
+            foreach (Student student in this.lista())
+                if (student.First_name == first_name && student.Age+student.First_name == first_name_age)
+                    return true;
+            return false;
+        }
+        public Student studentLogare(string first_name, string first_name_age)
+        {
+            foreach (Student student in this.lista())
+                if (student.First_name == first_name && student.Age + student.First_name == first_name_age)
+                    return student;
+            return null;
+        }
     }
 }

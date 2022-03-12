@@ -493,9 +493,8 @@ namespace View.View
 
             if ((sender as Label).Text == "Inregistrare")
             {
-                LogareInregistrare p = new LogareInregistrare(2, this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices);
+                LogareInregistrare p = new LogareInregistrare(2, this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices,(this as Home_View));
                 main.Controls.Add(p);
-                this.student = p.Student;
             }
         }
         public void logare_Click(object sender, EventArgs e)
@@ -526,16 +525,18 @@ namespace View.View
             carti.Visible = false;
             if ((sender as Label).Text == "Logare")
             {
-                LogareInregistrare p = new LogareInregistrare(1,this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices);
+                LogareInregistrare p = new LogareInregistrare(1,this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices,(this as Home_View));
                 main.Controls.Add(p);
-                this.student = p.Student;
+                
             }
             else
             {
                 inregistrareL.Text = "Inregistrare";
                 (sender as Label).Text = "Logare";
+                this.student = null;
             }
         }
+
         public void adaugare_Click(object sender, EventArgs e)
         {
 
@@ -544,6 +545,11 @@ namespace View.View
         {
 
         }
+        public void afisareCarti_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void inscriere_Click(object sender, EventArgs e)
         {
             Panel main = null;
@@ -560,21 +566,53 @@ namespace View.View
                     curs = control as Panel;
             main.Controls.Clear();
             curs.Visible = false;
-
-            Panel p = new MainCurs(1,this,this.bookServices,this.courseServices,this.enrolementServices,this.studentServices,this.student_id_cardServices);
+            Panel p = new MainCurs(1,this,this.bookServices,this.courseServices,this.enrolementServices,this.studentServices,this.student_id_cardServices,this.student,(this as Home_View));
             main.Controls.Add(p);
         }
         public void dezabonare_Click(object sender, EventArgs e)
         {
-            
+            Panel main = null;
+            Panel home = null;
+            Panel curs = null;
+            foreach (Control control in this.Controls)
+                if (control.Name == "home")
+                    home = control as Panel;
+            foreach (Control control in home.Controls)
+                if (control.Name == "main")
+                    main = control as Panel;
+                else
+                    if (control.Name == "cursP")
+                    curs = control as Panel;
+            main.Controls.Clear();
+            curs.Visible = false;
+
+            Panel p = new MainCurs(2, this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices, this.student, (this as Home_View));
+            main.Controls.Add(p);
         }
         public void afisareCurs_Click(object sender, EventArgs e)
         {
+            Panel main = null;
+            Panel home = null;
+            Panel curs = null;
+            foreach (Control control in this.Controls)
+                if (control.Name == "home")
+                    home = control as Panel;
+            foreach (Control control in home.Controls)
+                if (control.Name == "main")
+                    main = control as Panel;
+                else
+                    if (control.Name == "cursP")
+                    curs = control as Panel;
+            main.Controls.Clear();
+            curs.Visible = false;
 
+            Panel p = new MainCurs(3, this, this.bookServices, this.courseServices, this.enrolementServices, this.studentServices, this.student_id_cardServices, this.student, (this as Home_View));
+            main.Controls.Add(p);
         }
-        public void afisareCarti_Click(object sender, EventArgs e)
+        public Student setGetStudent
         {
-
+            get => this.student;
+            set => this.student = value;
         }
     }
 }

@@ -99,5 +99,19 @@ namespace Online_School.Services
                     return true;
             return false;
         }
+        public int getId(string name,string departament)
+        {
+            foreach (Course course in this.lista())
+                if (course.Name == name && course.Departament == departament)
+                    return course.Id;
+            return -1;
+        }
+        public Course getCourseById(int id)
+        {
+            foreach (Course course in this.lista())
+                if (course.Id == id)
+                    return course;
+            return null;
+        }
     }
 }

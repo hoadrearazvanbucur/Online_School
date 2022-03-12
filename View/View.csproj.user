@@ -4,9 +4,6 @@
     <Compile Update="Mockup\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Mockup\TranslateTimer.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="View\Home_View.cs">
       <SubType>Form</SubType>
     </Compile>

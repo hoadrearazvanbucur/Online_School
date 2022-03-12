@@ -17,9 +17,10 @@ namespace View.View
         private StudentServices studentServices;
         private Student_id_cardServices student_id_cardServices;
         private Student student;
+        private Home_View home_view;
         private Form form;
 
-        public LogareInregistrare(int index, Form form, BookServices bookServices, CourseServices courseServices, EnrolementServices enrolementServices, StudentServices studentServices, Student_id_cardServices student_id_cardServices)
+        public LogareInregistrare(int index, Form form, BookServices bookServices, CourseServices courseServices, EnrolementServices enrolementServices, StudentServices studentServices, Student_id_cardServices student_id_cardServices,Home_View home_view)
         {
             this.form = form;
             this.courseServices = courseServices;
@@ -28,6 +29,7 @@ namespace View.View
             this.student_id_cardServices = student_id_cardServices;
             this.studentServices = studentServices;
             this.student = null;
+            this.home_view = home_view;
 
             this.Click += new EventHandler(panel_Click);
             layoutPanel();
@@ -175,13 +177,14 @@ namespace View.View
                         inregistrareL = control as Label;
                 logareL.Text = "Delogare";
                 this.student = new Student(
+                    this.studentServices.studentLogare(name.Text, password.Text).Id,
                     this.studentServices.studentLogare(name.Text, password.Text).Age,
                     this.studentServices.studentLogare(name.Text, password.Text).First_name,
                     this.studentServices.studentLogare(name.Text, password.Text).Last_name,
                     this.studentServices.studentLogare(name.Text, password.Text).Email
                     );
                 inregistrareL.Text = this.Student.First_name;
-
+                this.home_view.setGetStudent = this.student;
                 MessageBox.Show("Logat cu succes!");
             }
             else
@@ -354,6 +357,8 @@ namespace View.View
                 this.student = new Student(int.Parse(age.Text),first_name.Text, last_name.Text, email.Text);
                 this.studentServices.create(Student);
                 inregistrareL.Text = this.Student.First_name;
+                this.home_view.setGetStudent = this.student;
+
 
                 MessageBox.Show("Inregistrat cu succes!");
             }

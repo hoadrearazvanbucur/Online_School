@@ -13,7 +13,6 @@ D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\obj\Debug\netcoreapp3.1\View.
 D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\obj\Debug\netcoreapp3.1\View.dll
 D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\obj\Debug\netcoreapp3.1\View.pdb
 D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\obj\Debug\netcoreapp3.1\View.genruntimeconfig.cache
-D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\obj\Debug\netcoreapp3.1\View.Mockup.TranslateTimer.resources
 D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\obj\Debug\netcoreapp3.1\View.View.Home_View.resources
 D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\bin\Debug\netcoreapp3.1\Online_School.exe
 D:\1_PROGRAMARE\C#\Baza_De_Date\Online_School\View\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
